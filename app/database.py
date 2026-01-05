@@ -5,7 +5,7 @@ from advanced_alchemy.base import BigIntAuditBase
 from sqlalchemy.ext.asyncio import create_async_engine, async_sessionmaker, AsyncSession
 
 DATABASE_URL = os.getenv('DATABASE_URL')
-engine = create_async_engine(DATABASE_URL)
+engine = create_async_engine(DATABASE_URL, echo=True)
 async_session_maker = async_sessionmaker(engine, expire_on_commit=False)
 
 async def create_tables():
