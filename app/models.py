@@ -21,11 +21,10 @@ class Status(enum.Enum):
     IN_PROGRESS = 2
     RESOLVED = 3
 
-
 class Users(BigIntAuditBase):
     __tablename__ = 'users'
     username: orm.Mapped[str] = orm.mapped_column(sa.String, nullable=False)
-
+    is_deleted: orm.Mapped[bool] = orm.mapped_column(sa.Boolean, nullable=False, default=False)
 
 class Messages(BigIntAuditBase):
     __tablename__ = 'messages'
@@ -43,5 +42,7 @@ class Chats(BigIntAuditBase):
 class Tickets(BigIntAuditBase):
     __tablename__ = 'tickets'
     message_id: orm.Mapped[int] = orm.mapped_column(sa.Integer, sa.ForeignKey("messages.id"))
+    title: orm.Mapped[str] = orm.mapped_column(sa.String, nullable=False)
     issue_type: orm.Mapped[Issues] = orm.mapped_column(Enum(Issues), nullable=False, default=Issues.OTHER_ERROR)
     status: orm.Mapped[Status] = orm.mapped_column(Enum(Status), nullable=False, default=Status.OPEN)
+    is_deleted: orm.Mapped[bool] = orm.mapped_column(sa.Boolean, nullable=False)

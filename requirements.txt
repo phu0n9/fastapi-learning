@@ -5,3 +5,5 @@ pydantic
 python-dotenv
 advanced-alchemy
 asyncpg
+alembic
+sqlmodel
