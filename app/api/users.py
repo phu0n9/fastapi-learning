@@ -18,6 +18,7 @@ async def get_users_by_username(username: str, service: UsersService = Depends(g
 
 
 
+
 @router.post('/me', response_model=UsersResponse)
 async def create_user(username: str, service: UsersService = Depends(get_users_service)):
     return await service.create_user(username)
