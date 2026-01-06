@@ -1,6 +1,6 @@
 # Practice FastAPI + SQLAlchemy
 
-- Users: need to add modification user, list of users with pagination + limit and add search users, add validation for the input as well, delete (soft and hard)
+- Users: soft delete
 - Database migration
 
 # AI Chat Support Ticket System — Requirements
